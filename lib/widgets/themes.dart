@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyThemeData {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
+        cardColor: Colors.blue[50],
         appBarTheme: AppBarTheme(
             color: Colors.white,
             elevation: 0.0,
