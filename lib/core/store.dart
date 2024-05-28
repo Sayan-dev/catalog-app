@@ -5,13 +5,10 @@ import 'package:flutter_catalog/models/cart.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 
 class MyStore extends VxStore {
-  CatalogModel catalog;
-  CartModel cart;
+  late CatalogModel catalog;
+  late CartModel cart;
 
-  MyStore(
-    this.catalog,
-    this.cart,
-  ) {
+  MyStore() {
     catalog = CatalogModel();
     cart = CartModel();
     cart.catalog = catalog;

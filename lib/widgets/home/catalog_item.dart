@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/widgets/common/add_to_cart.dart';
 import 'package:flutter_catalog/widgets/home/catalog_image.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -37,17 +38,7 @@ class CatalogItem extends StatelessWidget {
                     .bold
                     .xl
                     .make(),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      // backgroundColor:
-                      //     WidgetStateProperty.all(MyThemeData.darkBluishColor),
-                      shape: WidgetStateProperty.all(const StadiumBorder())),
-                  child: const Icon(
-                    CupertinoIcons.add,
-                    // color: MyThemeData.creamColor,
-                  ),
-                )
+                AddToCart(catalog: catalog)
               ],
             ).pOnly(top: 6)
           ],

@@ -12,7 +12,9 @@ class MyThemeData {
         primaryColorDark: creamColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-                backgroundColor: darkBluishColor, iconColor: creamColor)),
+          backgroundColor: darkBluishColor,
+          iconColor: creamColor,
+        )),
         buttonTheme: ButtonThemeData(
           colorScheme:
               ColorScheme.dark(primary: darkBluishColor, secondary: creamColor),
@@ -21,7 +23,7 @@ class MyThemeData {
             color: Colors.black,
             elevation: 0.0,
             centerTitle: true,
-            iconTheme: IconThemeData(color: Colors.black),
+            iconTheme: const IconThemeData(color: Colors.black),
             titleTextStyle: Theme.of(context)
                 .textTheme
                 .headlineLarge
@@ -55,7 +57,7 @@ class MyThemeData {
             color: Colors.white,
             elevation: 0.0,
             centerTitle: true,
-            iconTheme: IconThemeData(color: Colors.white),
+            iconTheme: const IconThemeData(color: Colors.white),
             titleTextStyle: Theme.of(context)
                 .textTheme
                 .headlineLarge
