@@ -13,9 +13,11 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
-        CatalogImage(
-          image: catalog.image,
-        ),
+        Hero(
+            tag: catalog.id,
+            child: CatalogImage(
+              image: catalog.image,
+            )),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,

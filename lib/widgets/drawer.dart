@@ -34,7 +34,7 @@ class AppDrawer extends Drawer {
             ),
             ListTile(
               onTap: () {
-                handleNavigation(context, AppRouter.profileRoute);
+                handleNavigation(context, AppRouter.homeDetailsRouter);
               },
               leading: const Icon(
                 CupertinoIcons.profile_circled,
