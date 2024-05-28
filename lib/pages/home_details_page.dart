@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/widgets/drawer.dart';
@@ -12,64 +13,62 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: MyThemeData.creamColor,
+        backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyThemeData.creamColor,
+      backgroundColor: context.theme.primaryColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.theme.primaryColorDark,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${catalog.price}".text.bold.xl4.red800.make(),
+            "\$${catalog.price}"
+                .text
+                .bold
+                .xl4
+                .color(context.theme.textTheme.bodySmall?.color)
+                .make(),
             ElevatedButton(
               onPressed: () {},
-              child: "Buy".text.color(MyThemeData.creamColor).make(),
+              child: Icon(CupertinoIcons.add),
               style: ButtonStyle(
-                  backgroundColor:
-                      WidgetStateProperty.all(MyThemeData.darkBluishColor),
+                  // backgroundColor:
+                  //     WidgetStateProperty.all(MyThemeData.darkBluishColor),
                   shape: WidgetStateProperty.all(StadiumBorder())),
             ).wh(100, 50)
           ],
         ).p32(),
       ),
       body: SafeArea(
-        child: Container(
-          child: Expanded(
-            child: Column(
-              children: [
-                Hero(tag: catalog.id, child: Image.network(catalog.image))
-                    .h32(context)
-                    .p16(),
-                VxArc(
-                    height: 30.0,
-                    arcType: VxArcType.convey,
-                    edge: VxEdge.top,
-                    child: Container(
-                      color: Colors.white,
-                      width: context.screenWidth,
-                      child: Column(
-                        children: [
-                          Text("Hello"),
-                          catalog.name.text.xl4
-                              .color(MyThemeData.darkBluishColor)
-                              .bold
-                              .make(),
-                          catalog.desc.text
-                              .textStyle(context.captionStyle)
-                              .make(),
-                          "Lorem ipsum dolor sit amet. Sed do eiusmod tempo aliqua nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate."
-                              .text
-                              .textStyle(context.captionStyle)
-                              .center
-                              .make()
-                              .py16()
-                        ],
-                      ).pLTRB(32, 64, 32, 40),
-                    ))
-              ],
-            ),
-          ),
+        child: Column(
+          children: [
+            Hero(tag: catalog.id, child: Image.network(catalog.image))
+                .h32(context)
+                .p16(),
+            VxArc(
+                height: 30.0,
+                arcType: VxArcType.convey,
+                edge: VxEdge.top,
+                child: Container(
+                  color: context.theme.primaryColorDark,
+                  width: context.screenWidth,
+                  child: Column(
+                    children: [
+                      catalog.name.text.xl4
+                          .color(context.theme.textTheme.headlineMedium?.color)
+                          .bold
+                          .make(),
+                      catalog.desc.text.textStyle(context.captionStyle).make(),
+                      "Lorem ipsum dolor sit amet. Sed do eiusmod tempo aliqua nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate."
+                          .text
+                          .textStyle(context.captionStyle)
+                          .center
+                          .make()
+                          .py16()
+                    ],
+                  ).pLTRB(32, 64, 32, 60),
+                ))
+          ],
         ),
       ),
     );

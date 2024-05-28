@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/widgets/home/catalog_image.dart';
@@ -11,7 +12,7 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
-        child: Row(
+            child: Row(
       children: [
         Hero(
             tag: catalog.id,
@@ -22,19 +23,30 @@ class CatalogItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            catalog.name.text.lg.color(MyThemeData.darkBluishColor).bold.make(),
+            catalog.name.text.lg
+                .color(context.theme.colorScheme.secondary)
+                .bold
+                .make(),
             catalog.desc.text.textStyle(context.captionStyle).make(),
             ButtonBar(
               alignment: MainAxisAlignment.spaceBetween,
               buttonPadding: EdgeInsets.zero,
               children: [
-                "\$${catalog.price}".text.bold.xl.make(),
+                "\$${catalog.price}"
+                    .text
+                    .color(context.theme.primaryColorLight)
+                    .bold
+                    .xl
+                    .make(),
                 ElevatedButton(
                   onPressed: () {},
-                  child: "Buy".text.color(MyThemeData.creamColor).make(),
+                  child: Icon(
+                    CupertinoIcons.add,
+                    // color: MyThemeData.creamColor,
+                  ),
                   style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all(MyThemeData.darkBluishColor),
+                      // backgroundColor:
+                      //     WidgetStateProperty.all(MyThemeData.darkBluishColor),
                       shape: WidgetStateProperty.all(StadiumBorder())),
                 )
               ],
@@ -42,6 +54,13 @@ class CatalogItem extends StatelessWidget {
           ],
         ).expand()
       ],
-    )).white.rounded.height(150).width(250).p8.make().pOnly(top: 16);
+    ))
+        .color(context.cardColor)
+        .rounded
+        .height(150)
+        .width(250)
+        .p8
+        .make()
+        .pOnly(top: 16);
   }
 }
