@@ -4,6 +4,8 @@ import 'package:flutter_catalog/pages/home_details_page.dart';
 import 'package:flutter_catalog/widgets/home/catalog_item.dart';
 
 class CatalogList extends StatelessWidget {
+  const CatalogList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

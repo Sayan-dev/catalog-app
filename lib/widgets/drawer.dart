@@ -4,6 +4,8 @@ import 'package:flutter_catalog/utils/Drawer/drawerheader.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 
 class AppDrawer extends Drawer {
+  const AppDrawer({super.key});
+
   handleNavigation(BuildContext context, String route) {
     Navigator.pushNamed(context, route);
   }

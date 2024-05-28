@@ -1,10 +1,11 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -28,9 +29,9 @@ class _LoginPageState extends State<LoginPage> {
           clickedButton = true;
         },
       );
-      await Future.delayed(Duration(milliseconds: 500));
+      await Future.delayed(const Duration(milliseconds: 500));
       Navigator.pushNamed(context, AppRouter.homeRoute);
-      await Future.delayed(Duration(milliseconds: 500));
+      await Future.delayed(const Duration(milliseconds: 500));
 
       setState(
         () {
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Center(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Image.asset(
@@ -58,9 +59,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Text(
                 "Welcome $name",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Padding(
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                                   return null;
                                 },
                                 onChanged: (value) => handleNameUpdate(value),
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     hintText: "UserName",
                                     label: Text("Enter Username")))),
                         Padding(
@@ -93,13 +94,13 @@ class _LoginPageState extends State<LoginPage> {
                                   return null;
                                 },
                                 obscureText: true,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     hintText: "Password",
                                     label: Text("Enter Password"))))
                       ],
                     ),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Material(
@@ -108,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: InkWell(
                     onTap: () => handleMoveToHome(context),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 500),
                       width: clickedButton ? 40 : 150,
                       height: 40,
                       alignment: Alignment.center,

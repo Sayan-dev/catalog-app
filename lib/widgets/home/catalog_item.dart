@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/widgets/home/catalog_image.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatalogItem extends StatelessWidget {
@@ -40,14 +39,14 @@ class CatalogItem extends StatelessWidget {
                     .make(),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Icon(
-                    CupertinoIcons.add,
-                    // color: MyThemeData.creamColor,
-                  ),
                   style: ButtonStyle(
                       // backgroundColor:
                       //     WidgetStateProperty.all(MyThemeData.darkBluishColor),
-                      shape: WidgetStateProperty.all(StadiumBorder())),
+                      shape: WidgetStateProperty.all(const StadiumBorder())),
+                  child: const Icon(
+                    CupertinoIcons.add,
+                    // color: MyThemeData.creamColor,
+                  ),
                 )
               ],
             ).pOnly(top: 6)

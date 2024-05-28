@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
-import 'package:flutter_catalog/widgets/drawer.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeDetailPage extends StatelessWidget {
@@ -30,11 +28,11 @@ class HomeDetailPage extends StatelessWidget {
                 .make(),
             ElevatedButton(
               onPressed: () {},
-              child: Icon(CupertinoIcons.add),
               style: ButtonStyle(
                   // backgroundColor:
                   //     WidgetStateProperty.all(MyThemeData.darkBluishColor),
-                  shape: WidgetStateProperty.all(StadiumBorder())),
+                  shape: WidgetStateProperty.all(const StadiumBorder())),
+              child: const Icon(CupertinoIcons.add),
             ).wh(100, 50)
           ],
         ).p32(),

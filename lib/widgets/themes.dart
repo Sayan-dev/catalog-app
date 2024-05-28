@@ -5,7 +5,11 @@ import 'package:velocity_x/velocity_x.dart';
 class MyThemeData {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.blue,
+        cardColor: Colors.white,
+        canvasColor: creamColor,
+        primaryColor: lightBluishColor,
+        primaryColorLight: Colors.black,
+        primaryColorDark: creamColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
                 backgroundColor: darkBluishColor, iconColor: creamColor)),
@@ -13,20 +17,22 @@ class MyThemeData {
           colorScheme:
               ColorScheme.dark(primary: darkBluishColor, secondary: creamColor),
         ),
-        cardColor: Colors.white,
-        canvasColor: creamColor,
         appBarTheme: AppBarTheme(
-            color: Colors.white,
+            color: Colors.black,
             elevation: 0.0,
             centerTitle: true,
-            iconTheme: Theme.of(context).iconTheme,
-            titleTextStyle: Theme.of(context).textTheme.headlineSmall),
+            iconTheme: IconThemeData(color: Colors.black),
+            titleTextStyle: Theme.of(context)
+                .textTheme
+                .headlineLarge
+                ?.copyWith(color: Colors.black)),
         fontFamily: GoogleFonts.poppins().fontFamily,
         textTheme: const TextTheme(
           bodySmall: TextStyle(color: Colors.black),
           bodyMedium: TextStyle(color: Colors.black),
           headlineSmall: TextStyle(color: Colors.black),
           headlineMedium: TextStyle(color: Colors.black),
+          headlineLarge: TextStyle(color: Colors.black),
         ),
         // colorScheme:
         //     ColorScheme.fromSwatch().copyWith(secondary: darkBluishColor),
@@ -46,17 +52,21 @@ class MyThemeData {
               primary: lightBluishColor, secondary: darkCreamColor),
         ),
         appBarTheme: AppBarTheme(
-            color: Colors.black,
+            color: Colors.white,
             elevation: 0.0,
             centerTitle: true,
-            iconTheme: Theme.of(context).iconTheme,
-            titleTextStyle: Theme.of(context).textTheme.headlineSmall),
+            iconTheme: IconThemeData(color: Colors.white),
+            titleTextStyle: Theme.of(context)
+                .textTheme
+                .headlineLarge
+                ?.copyWith(color: Colors.white)),
         fontFamily: GoogleFonts.poppins().fontFamily,
         textTheme: const TextTheme(
           bodySmall: TextStyle(color: Colors.white),
           bodyMedium: TextStyle(color: Colors.white),
-          headlineSmall: TextStyle(color: Colors.white),
+          headlineSmall: TextStyle(color: Colors.white, height: 32),
           headlineMedium: TextStyle(color: Colors.white),
+          headlineLarge: TextStyle(color: Colors.white),
         ),
         // colorScheme: ColorScheme.fromSwatch()
         //     .copyWith(primary: Colors.white, secondary: Colors.white),

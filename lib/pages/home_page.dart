@@ -7,10 +7,11 @@ import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/home/catalog_header.dart';
 import 'package:flutter_catalog/widgets/home/catalog_list.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -24,10 +25,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(Duration(seconds: 2));
-    final catalog_json =
+    await Future.delayed(const Duration(seconds: 2));
+    final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
-    final decodedData = jsonDecode(catalog_json);
+    final decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
     setState(() {
       CatalogModel.items = List.from(productsData)
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         backgroundColor: Theme.of(context).canvasColor,
         floatingActionButton: FloatingActionButton(
-          shape: CircleBorder(side: BorderSide.none),
+          shape: const CircleBorder(side: BorderSide.none),
           onPressed: () {
             Navigator.pushNamed(context, AppRouter.cartRouter);
           },
@@ -57,9 +58,9 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CatalogHeader(),
+                const CatalogHeader(),
                 if (CatalogModel.items.isNotEmpty)
-                  CatalogList().py16().expand()
+                  const CatalogList().py16().expand()
                 else
                   Center(child: const CircularProgressIndicator().py(16))
                       .expand()
