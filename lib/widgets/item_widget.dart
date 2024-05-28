@@ -10,7 +10,11 @@ class ItemWidget extends StatelessWidget {
     return Card(
       color: Theme.of(context).cardColor,
       child: ListTile(
-        leading: Image.network(item.image),
+        leading: Image.network(
+          item.image,
+          width: 60,
+          height: 100,
+        ),
         title: Text(item.name),
         subtitle: Text(item.desc),
         trailing: Text("\$${item.price}",

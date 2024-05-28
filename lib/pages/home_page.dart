@@ -3,8 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_catalog/models/catalog.dart';
-import 'package:flutter_catalog/widgets/drawer.dart';
-import 'package:flutter_catalog/widgets/item_widget.dart';
+import 'package:flutter_catalog/widgets/home/catalog_header.dart';
+import 'package:flutter_catalog/widgets/home/catalog_list.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -35,22 +36,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Home",
+        body: SafeArea(
+      child: Container(
+        padding: Vx.m16,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CatalogHeader(),
+            if (CatalogModel.items.isNotEmpty)
+              CatalogList().expand()
+            else
+              Center(child: const CircularProgressIndicator().py(16)).expand()
+          ],
         ),
       ),
-      body: CatalogModel.items.isNotEmpty
-          ? ListView.builder(
-              padding: EdgeInsets.all(8.0),
-              itemCount: CatalogModel.items.length,
-              itemBuilder: (context, index) {
-                return ItemWidget(item: CatalogModel.items[index]);
-              })
-          : Center(
-              child: CircularProgressIndicator(),
-            ),
-      drawer: AppDrawer(),
-    );
+    ));
   }
 }
